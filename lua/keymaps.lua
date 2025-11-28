@@ -21,6 +21,8 @@ vim.diagnostic.config {
   jump = { float = true },
 }
 
+vim.keymap.set({ 'n', 'v' }, 'S', '<nop>')
+
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
@@ -65,3 +67,28 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- vim: ts=2 sts=2 sw=2 et
+
+vim.api.nvim_set_keymap('n', '<leader>npt', '<cmd>NoNeckPain<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>npu', '<cmd>NoNeckPainWidthUp<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>npd', '<cmd>NoNeckPainWidthDown<CR>', { noremap = true })
+
+vim.keymap.set('n', '<leader>tu', '<cmd>UndotreeToggle<CR>')
+
+-- Diffview
+--
+
+vim.keymap.set('n', '<leader>dvo', '<cmd>DiffviewOpen<cr>')
+vim.keymap.set('n', '<leader>dvc', '<cmd>DiffviewClose<cr>')
+vim.keymap.set('n', '<leader>dvf', '<cmd>DiffviewFileHistory %<cr>')
+vim.keymap.set('n', '<leader>dvb', function()
+  vim.ui.input({
+    prompt = 'diff against branch: ',
+  }, function(input) return vim.api.nvim_command('DiffviewOpen ' .. input) end)
+end)
+
+vim.api.nvim_set_keymap('n', '<space>tk', ':Telescope keymaps<cr>', { noremap = true })
+
+vim.api.nvim_set_keymap('n', '<space>ts', ':Telescope luasnip<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<space>th', ':Telescope highlights<cr>', { noremap = true })
+-- tree
+vim.api.nvim_set_keymap('n', '<space>tt', ':Telescope file_browser path=%:p:h select_buffer=true<cr>', { noremap = true })

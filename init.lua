@@ -105,5 +105,22 @@ require 'lazy-bootstrap'
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
 
+-- require('lspconfig').lexical.setup {
+--   cmd = { '/Users/mg/expert/apps/expert/burrito_out/expert_darwin_arm64' },
+--   root_dir = function(fname)
+--     return require('lspconfig').util.root_pattern('mix.exs', '.git')(fname) or vim.loop.cwd()
+--   end,
+--   filetypes = { 'elixir', 'eelixir', 'heex' },
+--   -- optional settings
+--   settings = {},
+-- }
+vim.lsp.config('expert', {
+  cmd = { 'expert', '--stdio' },
+  root_markers = { 'mix.exs', '.git' },
+  filetypes = { 'elixir', 'eelixir', 'heex' },
+})
+
+vim.lsp.enable 'expert'
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
