@@ -271,27 +271,27 @@ return {
               j = '<Esc>',
             },
           },
-          c = {
-            j = {
-              k = '<C-c>',
-              j = '<C-c>',
-            },
-          },
-          t = {
-            j = {
-              k = '<C-\\><C-n>',
-            },
-          },
-          v = {
-            j = {
-              k = '<Esc>',
-            },
-          },
-          s = {
-            j = {
-              k = '<Esc>',
-            },
-          },
+          -- c = {
+          --   j = {
+          --     k = '<C-c>',
+          --     j = '<C-c>',
+          --   },
+          -- },
+          -- t = {
+          --   j = {
+          --     k = '<C-\\><C-n>',
+          --   },
+          -- },
+          -- v = {
+          --   j = {
+          --     k = '<Esc>',
+          --   },
+          -- },
+          -- s = {
+          --   j = {
+          --     k = '<Esc>',
+          --   },
+          -- },
         },
       }
     end,
@@ -497,6 +497,13 @@ return {
       vim.g.vimtex_quickfix_open_on_warning = 0 --  don't open quickfix if there are only warnings
       vim.g.vimtex_quickfix_ignore_filters =
         { 'Underfull', 'Overfull', 'LaTeX Warning: .\\+ float specifier changed to', 'Package hyperref Warning: Token not allowed in a PDF string' }
+    end,
+  },
+  {
+    'GustavEikaas/easy-dotnet.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
+    config = function()
+      require('easy-dotnet').setup()
     end,
   },
 }

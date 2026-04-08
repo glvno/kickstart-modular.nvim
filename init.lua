@@ -120,7 +120,26 @@ vim.lsp.config('expert', {
   filetypes = { 'elixir', 'eelixir', 'heex' },
 })
 
+-- In your lspconfig setup file (e.g., lua/community/graphql.lua or similar)
+require('lspconfig').graphql.setup {
+  -- Optional: configure root directory detection
+  root_dir = require('lspconfig.util').root_pattern('.graphqlconfig', '.graphqlrc', 'package.json'),
+  -- Optional: add filetypes if needed
+  filetypes = {
+    'graphql',
+    'typescriptreact',
+    'javascriptreact',
+    'typescript',
+    'javascript',
+  },
+  -- Optional: other custom options
+}
+
 vim.lsp.enable 'expert'
+
+vim.keymap.del('n', 'S')
+-- vim.keymap.del('v', 'S')
+-- vim.keymap.del('s', 'S')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

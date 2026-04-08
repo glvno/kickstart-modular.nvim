@@ -25,6 +25,12 @@ return {
           'rafamadriz/friendly-snippets',
           config = function()
             require('luasnip.loaders.from_vscode').lazy_load {}
+            -- Load custom snippets from ~/.config/nvim/snippets/
+            require('luasnip.loaders.from_vscode').lazy_load { paths = vim.fn.stdpath 'config' .. '/snippets' }
+            -- Load Lua snippets from ~/.config/nvim/lua/custom/snippets/
+            require('luasnip.loaders.from_lua').load { paths = vim.fn.stdpath 'config' .. '/lua/custom/snippets' }
+
+            require('luasnip').filetype_extend('typescriptreact', { 'html', 'javascript', 'typescript' })
           end,
           -- },
         },
