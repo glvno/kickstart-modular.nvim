@@ -119,9 +119,10 @@ vim.lsp.config('expert', {
   root_markers = { 'mix.exs', '.git' },
   filetypes = { 'elixir', 'eelixir', 'heex' },
 })
+vim.lsp.enable 'expert'
 
 -- In your lspconfig setup file (e.g., lua/community/graphql.lua or similar)
-require('lspconfig').graphql.setup {
+vim.lsp.config('graphql', {
   -- Optional: configure root directory detection
   root_dir = require('lspconfig.util').root_pattern('.graphqlconfig', '.graphqlrc', 'package.json'),
   -- Optional: add filetypes if needed
@@ -133,9 +134,9 @@ require('lspconfig').graphql.setup {
     'javascript',
   },
   -- Optional: other custom options
-}
+})
 
-vim.lsp.enable 'expert'
+vim.lsp.enable 'graphql'
 
 vim.keymap.del('n', 'S')
 -- vim.keymap.del('v', 'S')

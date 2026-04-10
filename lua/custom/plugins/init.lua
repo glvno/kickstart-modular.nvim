@@ -72,21 +72,15 @@ return {
       require('hop').setup { keys = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' }
       local hop = require 'hop'
 
-      vim.keymap.set('n', 's', function()
-        hop.hint_char1 { direction = nil }
-      end, { remap = true })
+      vim.keymap.set('n', 's', function() hop.hint_char1 { direction = nil } end, { remap = true })
 
-      vim.keymap.set('x', 's', function()
-        hop.hint_char1 { direction = nil }
-      end, { remap = true })
+      vim.keymap.set('x', 's', function() hop.hint_char1 { direction = nil } end, { remap = true })
     end,
   },
 
   {
     'windwp/nvim-ts-autotag',
-    config = function()
-      require('nvim-ts-autotag').setup {}
-    end,
+    config = function() require('nvim-ts-autotag').setup {} end,
   },
   {
     'akinsho/bufferline.nvim',
@@ -101,9 +95,7 @@ return {
   },
   {
     'sainnhe/gruvbox-material',
-    config = function()
-      vim.cmd.colorscheme 'everforest'
-    end,
+    config = function() vim.cmd.colorscheme 'everforest' end,
   },
   { 'sainnhe/everforest' },
   { 'shaunsingh/seoul256.nvim' },
@@ -502,9 +494,6 @@ return {
   {
     'GustavEikaas/easy-dotnet.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
-    config = function()
-      require('easy-dotnet').setup()
-    end,
+    config = function() require('easy-dotnet').setup() end,
   },
 }
->>>>>>> a8cb815 (Bunch of untracked changes)
